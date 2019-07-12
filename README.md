@@ -26,13 +26,33 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+Express is a routing and middleware web framework that has minimal functionality of its own:
+An Express application is essentially a series of middleware function calls.
+Express helps you respond to requests with route support so that you may write responses to specific URLs.
+
 - [ ] Describe Middleware?
+
+Middleware functions are functions that have access to the request object (req), the response object (res), and the
+next middleware function.
+
+they can : 
+Execute any code.
+Make changes to the request and the response objects.
+End the request-response cycle.
+Call the next middleware function in the stack.
 
 - [ ] Describe a Resource?
 
+Resources are any element that is the subject of a CRUD operation,
+A resource can describe different sources of information.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+Status codes and messages => res.status(code).json(message object).
+
 - [ ] How can we partition our application into sub-applications?
+
+An application can have endpoints and CRUD operations partitioned into separate files for better organization.
 
 ## Project Setup
 
