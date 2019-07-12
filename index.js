@@ -1,5 +1,6 @@
-const server = require(".server");
+const server = require("./server");
 
-server.listen(4000, () => {
-  console.log("server is running on http//:localhost:4000");
+server.listen(3500, () => {
+  console.log('server is running on http://localhost:3500');
 });
+

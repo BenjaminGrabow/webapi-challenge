@@ -1,12 +1,12 @@
-const express = require("express");
-const ActionRouter = require("./data/helpers/ActionRouter");
-const ProjectRouter = require("./data/helpers/ProjectRouter");
+const express = require('express');
+const actionRouter = require('./data/helpers/actionRouter');
+const projectRouter = require('./data/helpers/projectRouter');
 
 const server = express();
 
 server.use(express.json());
 
-server.use("/api/action", ActionRouter);
-server.use("/api/project", ProjectRouter);
+server.use('/api/action', actionRouter);
+server.use('/api/project', projectRouter);
 
 module.exports = server;
