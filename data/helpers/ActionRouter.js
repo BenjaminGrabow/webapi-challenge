@@ -17,7 +17,11 @@ router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const project = await Actions.get(id);
-    res.status(200).json(project);
+    if (project) {    
+      res.status(200).json(project);
+        } else {
+          res.status(400).json({ message: 'invalid Id ' })
+        }
   } catch (error) {
     res.status(500).json({ errorMessage: 'The request failed !!!' });
   }
@@ -27,7 +31,11 @@ router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const deleteIt = await Actions.remove(id);
-        res.status(200).json({ message: 'Post got deleted !' });
+    if (deleteIt) {
+          res.status(200).json({ message: 'Post got deleted !' });
+        } else {
+          res.status(400).json({ message: 'invalid Id ' })
+        }
   } catch (error) {
     res.status(500).json({ errorMessage: 'The request failed !!!' });
   } 
@@ -36,9 +44,11 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const update = await Actions.update(req.params.id, req.body);
-   
-      res.status(200).json({ message: 'Post got updated !' });
-      // res.status(400).json({ message: 'Text must be at least 5 characters long !' })
+    if (update) { 
+        res.status(200).json({ message: 'Post got updated !' });
+          } else {
+            res.status(400).json({ message: 'invalid Id ' })
+          }
   } catch (error) {
     res.status(500).json({ errorMessage: 'The request failed !!!' });
   }
